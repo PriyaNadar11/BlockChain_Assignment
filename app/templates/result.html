@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vision2Voice - Result</title>
+</head>
+<body style="margin: 0; height: 100vh; background-color: rgba(189, 189, 232, 0.949); display: flex; justify-content: center; align-items: center;">
+    <div style="background-color: white; padding: 30px; border-radius: 10px; width: 400px; text-align: center; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+        <h1 style="color: navy;">Vision2Voice Results</h1>
+
+        <h4 style="color: navy;">Image Classification:</h4>
+        <p style="font-size: 16px; color: black;">{{ classification }}</p>
+
+        {% if extracted_text %}
+        <h4 style="color: navy;">Extracted Text:</h4>
+        <p style="font-size: 16px; color: black;">{{ extracted_text }}</p>
+        {% endif %}
+
+        <h4 style="color: navy;">Audio Playback:</h4>
+        <audio controls>
+            <source src="{{ url_for('upload_file', filename='output_audio.mp3') }}" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+
+        <br><br>
+        <a href="/" style="background-color: navy; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Return to Home</a>
+    </div>
+</body>
+</html>
